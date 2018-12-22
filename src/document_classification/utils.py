@@ -7,6 +7,9 @@ import time
 import torch
 import uuid
 
+# Base directory
+BASE_DIR = os.path.dirname(__file__)
+
 def setup_logger(name, log_file, level=logging.DEBUG):
     """Function setup as many loggers as you want.
     """

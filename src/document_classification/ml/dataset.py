@@ -6,7 +6,7 @@ import random
 import torch
 from torch.utils.data import Dataset, DataLoader
 
-from document_classification.config import ml_logger
+from document_classification.configs.config import ml_logger
 from document_classification.ml.vocabulary import Vocabulary, SequenceVocabulary
 from document_classification.ml.vectorizer import Vectorizer
 
@@ -85,7 +85,7 @@ class Dataset(Dataset):
                 out_data_dict[name] = data_dict[name].to(device)
             yield out_data_dict
 
-def sample_data(dataset):
+def sample(dataset):
     """Some sanity checks on the dataset.
     """
     sample_idx = random.randint(0,len(dataset))

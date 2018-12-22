@@ -2,10 +2,7 @@ import os
 from flask_caching import Cache
 import logging
 
-from document_classification.utils import setup_logger, create_dirs
-
-# Base directory
-BASE_DIR = os.path.dirname(__file__)
+from document_classification.utils import BASE_DIR, setup_logger, create_dirs
 
 # Loggers
 log_dir = os.path.join(BASE_DIR, 'logs'); create_dirs(log_dir)

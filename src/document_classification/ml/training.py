@@ -8,7 +8,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 
-from document_classification.config import ml_logger
+from document_classification.configs.config import ml_logger
 from document_classification.ml.vocabulary import Vocabulary, SequenceVocabulary
 from document_classification.ml.vectorizer import Vectorizer
 from document_classification.ml.dataset import Dataset
@@ -242,15 +242,15 @@ class Trainer(object):
         # Plot Loss
         plt.subplot(1, 2, 1)
         plt.title("Loss")
-        plt.plot(trainer.train_state["train_loss"], label="train")
-        plt.plot(trainer.train_state["val_loss"], label="val")
+        plt.plot(self.train_state["train_loss"], label="train")
+        plt.plot(self.train_state["val_loss"], label="val")
         plt.legend(loc='upper right')
 
         # Plot Accuracy
         plt.subplot(1, 2, 2)
         plt.title("Accuracy")
-        plt.plot(trainer.train_state["train_acc"], label="train")
-        plt.plot(trainer.train_state["val_acc"], label="val")
+        plt.plot(self.train_state["train_acc"], label="train")
+        plt.plot(self.train_state["val_acc"], label="val")
         plt.legend(loc='lower right')
 
         # Save figure
@@ -264,3 +264,4 @@ class Trainer(object):
         self.train_state["done_training"] = True
         with open(os.path.join(self.save_dir, "train_state.json"), "w") as fp:
             json.dump(self.train_state, fp)
+
