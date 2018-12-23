@@ -1,1 +1,0 @@
-/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/document_classification-1.0.1-py3.6.egg
