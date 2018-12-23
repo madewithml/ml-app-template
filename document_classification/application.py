@@ -21,13 +21,15 @@ def page_not_found(e):
     """Redirect all nonexistent URLS.
     """
     resp = {"response": "404 PAGE NOT FOUND"}
-    return make_response(jsonify(resp), 404)
+    status = 404
+    return make_response(jsonify(resp), status)
 
 # Internal error
 @application.errorhandler(500)
 def internal_error(error):
     resp = {"response": "500 INTERNAL ERROR"}
-    return make_response(jsonify(resp), 500)
+    status = 500
+    return make_response(jsonify(resp), status)
 
 
 if __name__ == "__main__":

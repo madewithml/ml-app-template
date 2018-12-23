@@ -4,13 +4,14 @@ import json
 import torch
 from threading import Thread
 
-from document_classification.api.utils import train
+from document_classification.api.utils import train, get_experiment_ids
 
 # Define blueprint
 _api = Blueprint("_api", __name__)
 
+
 # Health check
-@_api.route("/api", methods=["GET"])
+@_api.route("/", methods=["GET"])
 #@cache.cached(timeout=3600)
 def _health_check():
     """Health check.
@@ -18,6 +19,7 @@ def _health_check():
     resp = {"response": "We are live!"}
     status = 200
     return make_response(jsonify(resp), status)
+
 
 # Training
 @_api.route("/train", methods=["POST"])
@@ -40,3 +42,19 @@ def _train():
         status = 200
 
         return make_response(jsonify(resp), status)
+
+
+# List of experiments
+@_api.route("/experiments", methods=["GET"])
+def _experiments():
+    """Get a list of available experiments.
+    """
+    # Get ids
+    experiment_ids = get_experiment_ids()
+    resp = {"experiment_ids": experiment_ids}
+    status = 200
+    return make_response(jsonify(resp), status)
+
+
+if __name__ == '__main__':
+    print (get_experiment_ids())
