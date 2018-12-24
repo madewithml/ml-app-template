@@ -262,6 +262,7 @@ class Trainer(object):
 
     def save_train_state(self):
         self.train_state["done_training"] = True
+        ml_logger.info("==> ✅ Training complete!")
         with open(os.path.join(self.save_dir, "train_state.json"), "w") as fp:
             json.dump(self.train_state, fp)
 
