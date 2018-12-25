@@ -2,6 +2,9 @@
 
 ### Content
 - **datasets**: directory to hold datasets
+- **configs**: configuration files
+    - *train.json*: training configurations
+    - *infer.json*: inference configurations
 - **{{cookiecutter.service_name}}**:
     - *application.py*: application script
     - *config.py*: application configuration
@@ -9,9 +12,6 @@
     - **api**: holds all API scripts
         - *api.py*: API call definitions
         - *utils.py*: utility functions
-    - **config**: configuration files
-        - *train.json*: training configurations
-        - *infer.json*: inference configurations
     - **ml**:
         - *dataset.py*: dataset/dataloader
         - *inference.py*: inference operations
