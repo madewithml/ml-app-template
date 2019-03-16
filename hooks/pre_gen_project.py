@@ -8,7 +8,6 @@ service_name = service.replace(" ", "-")
 package_name = service_name.replace("-", "_")
 
 cookiecutter(
-    "cookiecutter-django",
     extra_context={"package_name": package_name}
 )
 
