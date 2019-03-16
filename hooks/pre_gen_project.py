@@ -12,7 +12,10 @@ cookiecutter(
     extra_context={"package_name": package_name}
 )
 
+print (1)
 print (service_name, package_name)
+
+print (2)
 print ("{{ cookiecutter.service_name }}", "{{ cookiecutter.package_name }}")
 
 sys.exit()
